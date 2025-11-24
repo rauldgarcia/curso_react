@@ -4,7 +4,8 @@ import Button from "./components/Button";
 import { useState } from "react";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState(["Pancho", "Nambre", "Meryjein"]);
+  /*const [isLoading, setIsLoading] = useState(false);
   const handleClick = () => setIsLoading(!isLoading);
 
   const list: string[] = ["Pancho", "Nambre", "Meryjein"];
@@ -23,6 +24,16 @@ function App() {
       >
         Boton
       </Button>
+    </Card>
+  );*/
+
+  const addMinion = () => setData([...data, 'Minion']);
+  const delMinion = () => setData(data.slice(0, -1));
+  return (
+    <Card>
+      <Button onClick={addMinion}>Agregar</Button>
+      <Button onClick={delMinion}>Eliminar</Button>
+      <List data={data} />
     </Card>
   );
 }
